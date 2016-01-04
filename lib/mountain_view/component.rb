@@ -11,9 +11,9 @@ module MountainView
     end
 
     def styleguide_stubs
-      YAML.load_file(stubs_file) || {}
-    rescue Errno::ENOENT
-      {}
+      #YAML.load_file(stubs_file) || {}
+      load stubs_file
+      Stubs.fetch(name).call
     end
 
     def component_stubs
@@ -29,7 +29,7 @@ module MountainView
     end
 
     def stubs_file
-      MountainView.configuration.components_path.join(name, "#{name}.yml")
+      MountainView.configuration.components_path.join(name, "stubs.rb")
     end
 
     def stubs?

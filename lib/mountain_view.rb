@@ -1,5 +1,7 @@
 require "mountain_view/version"
 require "mountain_view/configuration"
+require "mountain_view/registry"
+require "mountain_view/stubs"
 
 module MountainView
   def self.configuration
